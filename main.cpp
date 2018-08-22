@@ -9,12 +9,12 @@ void Create() {
     cout<<"Enter size : ";
     cin>>N;
     id = new int[N];
+    sz= new int[N];
     for (int i = 0; i < N; i++) {
         id[i] = i;
-    }
-    for (int i = 0; i < N; i++) {
         sz[i] = 1;
     }
+
 
 }
 
@@ -56,14 +56,14 @@ public:
 
         int i = root(p);
         int j = root(q);
-        id[i]=j;
-//        if (sz[i] < sz[j]) {
-//            id[i] = j;
-//           sz[j] += sz[i];
-//        } else {
-//            id[j] = i;
-//            sz[i] += sz[j];
-//        }
+//        id[i]=j;
+        if (sz[i] < sz[j]) {
+            id[i] = j;
+           sz[j] += sz[i];
+        } else {
+            id[j] = i;
+            sz[i] += sz[j];
+        }
 
     }
 };
@@ -79,10 +79,12 @@ int main() {
     cin>>x;
     if(x==1)
     {
-        while(1){
+        while(true){
     QuickFind q;
-    cout<<"1. Union \n 2. Connected \n 3. Exit";
-        cin>>x;
+            cout<<"1. QuickFind \n";
+            cout<<"2. QuickUnion\n";
+            cout<<"Response : ";
+            cin>>x;
         if(x==1){
             cout<<"Enter Elements : ";
             cin>>p;
@@ -103,7 +105,7 @@ int main() {
     else
     {
 
-        while(1){
+        while(true){
             QuickUnion q;
             cout<<"1. Union \n";
             cout<<"2. Connected \n";
